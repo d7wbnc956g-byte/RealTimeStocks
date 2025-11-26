@@ -78,3 +78,12 @@ RealTimeStocks/
 ├── Price Formatter/
 │   └── PriceFormatter.swift
 └── RealTimeStocks.xcodeproj
+
+⸻
+
+How the UI looks:
+
+<img width="359" height="770" alt="Screenshot 2025-11-26 at 16 05 41" src="https://github.com/user-attachments/assets/bd79e454-3791-4267-a9ae-466d41e48eca" />
+<img width="360" height="765" alt="Screenshot 2025-11-26 at 16 05 54" src="https://github.com/user-attachments/assets/95079591-9287-4b21-ab9a-3f12e6437296" />
+
+
