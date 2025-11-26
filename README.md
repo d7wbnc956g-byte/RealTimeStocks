@@ -46,7 +46,7 @@ Architecture
 Installation & Setup
 1.	Clone the repository:
    
-  git clone [https://github.com/yourusername/RealTimeStocks.git](https://github.com/d7wbnc956g-byte/RealTimeStocks.git)
+  git clone https://github.com/d7wbnc956g-byte/RealTimeStocks.git
 cd RealTimeStocks
 
 3.	Open the project in Xcode (≥ 15.0):
