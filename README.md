@@ -49,11 +49,11 @@ Installation & Setup
   git clone https://github.com/d7wbnc956g-byte/RealTimeStocks.git
 cd RealTimeStocks
 
-3.	Open the project in Xcode (≥ 15.0):
+2.	Open the project in Xcode (≥ 15.0):
    
   open RealTimeStocks.xcodeproj
 
-5.	Build and run on the simulator or a physical device.
+3.	Build and run on the simulator or a physical device.
 
 ⸻
 
