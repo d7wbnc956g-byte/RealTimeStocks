@@ -8,23 +8,32 @@
 import Foundation
 import Combine
 
+protocol WebSocketManagerType {
+    var isConnected: CurrentValueSubject<Bool, Never> { get }
+    var incoming: PassthroughSubject<String, Never> { get }
+    func connect()
+    func disconnect()
+    func send(message: String)
+}
+
 final class WebSocketManager {
     static let shared = WebSocketManager()
+    
     private let url = URL(string: "wss://ws.postman-echo.com/raw")!
     private var task: URLSessionWebSocketTask?
     private var session: URLSession
     private var receiveCancellable: AnyCancellable?
     private let queue = DispatchQueue(label: "websocket.queue")
     private(set) var isConnected = CurrentValueSubject<Bool, Never>(false)
-
+    
     // publishes raw JSON strings received from socket
     let incoming = PassthroughSubject<String, Never>()
-
+    
     private init() {
         let config = URLSessionConfiguration.default
         session = URLSession(configuration: config)
     }
-
+    
     func connect() {
         queue.async { [weak self] in
             guard let self = self, self.task == nil else { return }
@@ -34,7 +43,7 @@ final class WebSocketManager {
             self.isConnected.send(true)
         }
     }
-
+    
     func disconnect() {
         queue.async { [weak self] in
             guard let self = self, let task = self.task else { return }
@@ -43,7 +52,7 @@ final class WebSocketManager {
             self.isConnected.send(false)
         }
     }
-
+    
     func send(message: String) {
         queue.async { [weak self] in
             guard let self = self, let task = self.task else { return }
@@ -56,7 +65,7 @@ final class WebSocketManager {
             }
         }
     }
-
+    
     private func listen() {
         guard let task = self.task else { return }
         task.receive { [weak self] result in
@@ -86,3 +95,6 @@ final class WebSocketManager {
         }
     }
 }
+
+// MARK: - Make WebSocketManager conform to protocol
+extension WebSocketManager: WebSocketManagerType {}

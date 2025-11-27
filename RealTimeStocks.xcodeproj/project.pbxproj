@@ -21,10 +21,29 @@
 		D4CC90152ED6E4AC0074471F /* RealTimeStocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealTimeStocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D4CC903A2ED6E4C20074471F /* Exceptions for "RealTimeStocksTests" folder in "RealTimeStocksTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FeedViewModelTests.swift,
+				MockWebSocketManager.swift,
+			);
+			target = D4CC90142ED6E4AC0074471F /* RealTimeStocksTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D4CC900A2ED6E4AA0074471F /* RealTimeStocks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RealTimeStocks;
+			sourceTree = "<group>";
+		};
+		D4CC90382ED6E4C20074471F /* RealTimeStocksTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D4CC903A2ED6E4C20074471F /* Exceptions for "RealTimeStocksTests" folder in "RealTimeStocksTests" target */,
+			);
+			path = RealTimeStocksTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -51,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D4CC900A2ED6E4AA0074471F /* RealTimeStocks */,
+				D4CC90382ED6E4C20074471F /* RealTimeStocksTests */,
 				D4CC90092ED6E4AA0074471F /* Products */,
 			);
 			sourceTree = "<group>";
