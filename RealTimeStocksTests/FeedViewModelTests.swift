@@ -81,4 +81,29 @@ final class FeedViewModelTests: XCTestCase {
 
         XCTAssertEqual(mockWS.sentMessages.count, 25, "Should send a message for every symbol")
     }
+    
+    func testSetupInitialStocksLoadsStocksWithPreviousPrices() throws {
+           let vm = FeedViewModel(websocket: MockWebSocketManager())
+
+           XCTAssertEqual(vm.stocks.count, 25, "Should load 25 stocks from JSON")
+
+           let ids = vm.stocks.map { $0.id }
+           XCTAssertEqual(Set(ids).count, 25, "Stock IDs should be unique")
+
+           let missingPrev = vm.stocks.contains { $0.previousPrice == nil }
+           XCTAssertFalse(missingPrev, "All stocks should have previousPrice from JSON")
+
+           let first = vm.stocks.first!
+           XCTAssertEqual(first.id, 1)
+           XCTAssertEqual(first.symbol, "AAPL")
+           XCTAssertEqual(first.price, 198.45)
+           XCTAssertEqual(first.previousPrice, 197.30)
+           XCTAssertEqual(first.description, "Apple Inc. — Designs, manufactures, and markets consumer electronics, software, and online services.")
+
+           let last = vm.stocks.last!
+           XCTAssertEqual(last.id, 25)
+           XCTAssertEqual(last.symbol, "BAC")
+           XCTAssertEqual(last.price, 33.90)
+           XCTAssertEqual(last.previousPrice, 33.50)
+       }
 }

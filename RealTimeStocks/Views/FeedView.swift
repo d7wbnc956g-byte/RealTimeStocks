@@ -19,6 +19,7 @@ struct FeedView: View {
                     .ignoresSafeArea()
 
                 VStack(spacing: 0) {
+                    // Connection & Start/Stop controls
                     HStack {
                         Circle()
                             .frame(width: 12, height: 12)
@@ -48,9 +49,10 @@ struct FeedView: View {
                     .padding(.top, 12)
                     .padding(.bottom, 6)
 
+                    // MARK: - Stock list
                     ScrollView {
                         LazyVStack(spacing: 12) {
-                            ForEach(feedVM.stocks) { stock in
+                            ForEach(feedVM.stocks, id: \.id) { stock in
                                 if let vm = feedVM.stockViewModel(for: stock.symbol) {
                                     NavigationLink(value: vm.symbol) {
                                         HStack {

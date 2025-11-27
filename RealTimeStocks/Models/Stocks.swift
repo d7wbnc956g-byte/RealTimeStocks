@@ -8,14 +8,14 @@
 import Foundation
 
 struct Stock: Identifiable, Codable, Equatable {
-    let id: UUID
-    let symbol: String
+    var id: Int
+    var symbol: String
     var price: Double
     var previousPrice: Double?
     var description: String
 
     init(symbol: String, price: Double, description: String = "") {
-        self.id = UUID()
+        self.id = Int()
         self.symbol = symbol
         self.price = price
         self.previousPrice = nil

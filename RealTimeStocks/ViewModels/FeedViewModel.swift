@@ -35,11 +35,13 @@ final class FeedViewModel: ObservableObject {
     }
 
     private func setupInitialStocks() {
-        // Deterministic random prices; can override in tests
-        stocks = symbolList.map { symbol in
-            let starting = Double.random(in: 20...500)
-            let desc = "Company \(symbol) — quick description and market context."
-            return Stock(symbol: symbol, price: starting, description: desc)
+        guard let url = Bundle.main.url(forResource: "stocks", withExtension: "json") else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            let decoded = try JSONDecoder().decode([Stock].self, from: data)
+            stocks = decoded // IDs are unique 1-25, safe for SwiftUI
+        } catch {
+            print("Error loading stub stocks: \(error)")
         }
     }
 

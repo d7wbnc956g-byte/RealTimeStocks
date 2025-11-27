@@ -13,7 +13,7 @@ final class StockViewModel: ObservableObject, Identifiable {
     private var feed: FeedViewModel
     private var cancellables = Set<AnyCancellable>()
 
-    var id: UUID { stock.id }
+    var id: Int { stock.id }
 
     init(initialStock: Stock, feed: FeedViewModel) {
         self.stock = initialStock
