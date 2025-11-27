@@ -64,6 +64,15 @@ Usage
 	•	Observe price change indicators updating in real time.
 
 ⸻
+
+Running Unit Tests
+
+All unit tests are located in RealTimeStocksTests/ and cover:
+	•	FeedViewModelTests.swift – validates stock feed, WebSocket integration, and real-time updates.
+	•	MockWebSocketManager.swift – simulates WebSocket for test isolation.
+
+⸻
+
 Folder Structure:
 
 RealTimeStocks/
@@ -77,7 +86,10 @@ RealTimeStocks/
 │   └── DetailView.swift
 ├── Price Formatter/
 │   └── PriceFormatter.swift
-└── RealTimeStocks.xcodeproj
+├── RealTimeStocks.xcodeproj
+└── RealTimeStocksTests/
+    ├── FeedViewModelTests.swift
+    └── MockWebSocketManager.swift
 
 ⸻
 
