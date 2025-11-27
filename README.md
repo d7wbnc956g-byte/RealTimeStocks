@@ -76,6 +76,8 @@ All unit tests are located in RealTimeStocksTests/ and cover:
 Folder Structure:
 
 RealTimeStocks/
+├── Mock Data/
+    └── stocks.json
 ├── Models/
 │   └── Stock.swift
 ├── ViewModels/
