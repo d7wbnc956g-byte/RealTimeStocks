@@ -26,7 +26,6 @@ Detail View
 	•	Stock description
 
 Unit Testing
-	•	StockViewModel fully unit-tested:
 	•	Price increase
 	•	Price decrease
 	•	No change
